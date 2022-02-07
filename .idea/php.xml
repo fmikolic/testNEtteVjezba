@@ -24,6 +24,7 @@
       <path value="$PROJECT_DIR$/vjezbaNette/vendor/nette/php-generator" />
       <path value="$PROJECT_DIR$/vjezbaNette/vendor/nette/security" />
       <path value="$PROJECT_DIR$/vjezbaNette/vendor/nette/robot-loader" />
+      <path value="$PROJECT_DIR$/vjezbaNette/vendor/contributte/forms-bootstrap" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
