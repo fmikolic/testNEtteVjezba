@@ -20,3 +20,6 @@ di:
 security:
     users:
         demo: demo
+
+services:
+	security.passwords: Nette\Security\Passwords(::PASSWORD_BCRYPT)

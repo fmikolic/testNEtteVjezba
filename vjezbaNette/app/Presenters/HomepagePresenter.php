@@ -37,11 +37,16 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
     public function signInFormSucceeded(Form $form, \stdClass $data): void
     {
         try {
-            $this->getUser()->login($data->username, $data->password);
-            $section=$this->session->getSection("loginSection");
-            $section->set('userName', $data->username);
-            //$section->set('userName', $data->username);
-            $this->redirect('Secret:');
+            $passHashed=password_hash($data->password, PASSWORD_BCRYPT);
+            //print_r($data->password);die;
+            if(password_verify($data->password, $passHashed)){
+                $this->getUser()->login($data->username, $data->password);
+                $section=$this->session->getSection("loginSection");
+                $section->set('userName', $data->username);
+                $section->set('passWord', $data->password);
+                $this->redirect('Secret:');
+            }
+
         }catch (Nette\Security\AuthenticationException $e){
             $form->addError('Login failed!');
         }

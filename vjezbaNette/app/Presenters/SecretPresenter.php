@@ -18,19 +18,20 @@ class SecretPresenter extends Presenter
     {
 
         parent::startup();
-        $this->isLoggedUsername();
+
 
     }
 
     public function actionDefault(): void
     {
-
+        $this->isLoggedUsername();
     }
 
     public function isLoggedUsername():void {
         $section=$this->session->getSection("loginSection");
         $username = $section->get("userName");
-        echo $username;
+        $password= $section->get("passWord");
+        echo $username, $password;
 
     }
 
