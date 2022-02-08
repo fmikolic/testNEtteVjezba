@@ -20,4 +20,10 @@ class DatabaseFacade
         $result= $this->database->query('SELECT * FROM users');
         return $result->getRowCount();
     }
+
+    public function getUserSecretText($userId)
+    {
+        $result=$this->database->query('SELECT data FROM secret_data WHERE id=?', $userId);
+        return $result->fetchAll();
+    }
 }

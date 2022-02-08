@@ -12,7 +12,6 @@ use Nette;
 use Nette\Application\UI\Form;
 
 
-
 final class HomepagePresenter extends Nette\Application\UI\Presenter
 {
 
@@ -21,8 +20,8 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
 
     public function __construct(DatabaseFacade $facade, MyAuthenticator $authenticator)
     {
-        $this->facade=$facade;
-        $this->authenticator=$authenticator;
+        $this->facade = $facade;
+        $this->authenticator = $authenticator;
     }
 
     protected function startup()
@@ -33,7 +32,7 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
     function createComponentSignInForm(): Form
     {
         $form = new BootstrapForm;
-        $form->renderMode=RenderMode::INLINE;
+        $form->renderMode = RenderMode::INLINE;
 
         $form->addText('username', 'Username:')->setRequired('Username is empty!');
         $form->addPassword('password', 'Password:')->setRequired('Password is empty!');
@@ -47,16 +46,15 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
     public function signInFormSucceeded(Form $form, \stdClass $data): void
     {
         try {
-
-                $this->getUser()->login($data->username, $data->password);
-                $section = $this->session->getSection("loginSection");
-                $section->set('userName', $data->username);
-                $section->set('passWord', $data->password);
-                $this->redirect('Secret:');
-
+            $this->getUser()->login($data->username, $data->password);
+            $section = $this->session->getSection("loginSection");
+            $section->set('userName', $data->username);
+            $section->set('userId', $this->getUser()->id);
+            $this->redirect('Secret:');
 
         } catch (Nette\Security\AuthenticationException $e) {
-            $form->addError('Login failed!');
+            $this->flashMessage("Login failed", 'error');
+            //$form->addError('Login failed!');
         }
     }
 

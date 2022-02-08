@@ -4,16 +4,19 @@ declare(strict_types=1);
 
 namespace App\Presenters;
 
+use App\Model\DatabaseFacade;
 use Nette\Application\UI\Presenter;
 use Nette\Http\Session;
 
 class SecretPresenter extends Presenter
 {
-    public $session;
+    public Session $session;
+    public DatabaseFacade $facade;
 
-    public function __construct(Session $session)
+    public function __construct(Session $session, DatabaseFacade $facade)
     {
         $this->session = $session;
+        $this->facade = $facade;
     }
 
     protected function startup()
@@ -25,16 +28,13 @@ class SecretPresenter extends Presenter
 
     public function actionDefault(): void
     {
-        $this->isLoggedUsername();
-    }
-
-    public function isLoggedUsername(): void
-    {
         $section = $this->session->getSection("loginSection");
         $username = $section->get("userName");
-        $password = $section->get("passWord");
-        echo $username, $password;
+        $userID = $section->get("userId");
+
+        $this->template->data=$this->facade->getUserSecretText($userID);
 
     }
+
 
 }
