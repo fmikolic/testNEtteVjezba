@@ -4,20 +4,25 @@ declare(strict_types=1);
 
 namespace App\Presenters;
 
+use App\Helpers\MyAuthenticator;
+use App\Model\DatabaseFacade;
 use Contributte\FormsBootstrap\BootstrapForm;
 use Contributte\FormsBootstrap\Enums\RenderMode;
 use Nette;
 use Nette\Application\UI\Form;
-use Nette\Security\Passwords;
+
 
 
 final class HomepagePresenter extends Nette\Application\UI\Presenter
 {
-    private $passwords;
 
-    public function __construct(Passwords $passwords)
+    private DatabaseFacade $facade;
+    private MyAuthenticator $authenticator;
+
+    public function __construct(DatabaseFacade $facade, MyAuthenticator $authenticator)
     {
-        $this->passwords = $passwords;
+        $this->facade=$facade;
+        $this->authenticator=$authenticator;
     }
 
     protected function startup()
@@ -42,15 +47,13 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
     public function signInFormSucceeded(Form $form, \stdClass $data): void
     {
         try {
-            $passHashed = password_hash($data->password, PASSWORD_BCRYPT);
-            //print_r($data->password);die;
-            if (password_verify($data->password, $passHashed)) {
+
                 $this->getUser()->login($data->username, $data->password);
                 $section = $this->session->getSection("loginSection");
                 $section->set('userName', $data->username);
                 $section->set('passWord', $data->password);
                 $this->redirect('Secret:');
-            }
+
 
         } catch (Nette\Security\AuthenticationException $e) {
             $form->addError('Login failed!');

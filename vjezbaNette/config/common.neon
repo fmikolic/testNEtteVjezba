@@ -17,9 +17,7 @@ di:
 		parameters: no
 		tags: no
 
-security:
-    users:
-        demo: demo
-
-services:
-	security.passwords: Nette\Security\Passwords(::PASSWORD_BCRYPT)
+database:
+    dsn: %database.dsn%
+    user: %database.user%
+    password: %database.password%

@@ -1,11 +1,21 @@
 {block content}
-<h1 class="mx-auto">homepage dizajn</h1>
-<div class="mx-auto mt-5" style="width: 25%">
+<body class="text-center">
 
-    <h1 class="" n:block=title>Sign in</h1>
-    <div class="form-signin">
-        {control signInForm}
-    </div>
-
-
+<div class="mx-auto" style="padding-top: 40px" class="form-signin">
+        <form n:name="signInForm" class="form-signin">
+            <img class="mb-4" src="/Images/packaging.png" alt width="72" height="72">
+            <h1 n:block=title>Login</h1>
+            <ul class="errors" n:if="$form->hasErrors()">
+                <li n:foreach="$form->getErrors() as $error">{$error}</li>
+            </ul>
+            <div class="form-group">
+                <label n:name=username>Username <input n:name=username class="form-control"></label>
+            </div>
+            <div class="form-group mb-4">
+                <label n:name=password>Password <input n:name=password class="form-control"></label><br>
+            </div>
+            <input type="submit" n:name=submit class="btn btn-primary btn-lg btn-block" style="margin: auto;width: fit-content">
+        </form>
 </div>
+
+</body>
