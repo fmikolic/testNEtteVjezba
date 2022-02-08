@@ -23,7 +23,7 @@ class DatabaseFacade
 
     public function getUserSecretText($userId)
     {
-        $result=$this->database->query('SELECT data FROM secret_data WHERE id=?', $userId);
+        $result=$this->database->query('SELECT data FROM secret_data WHERE user_id=?', $userId);
         return $result->fetchAll();
     }
 }

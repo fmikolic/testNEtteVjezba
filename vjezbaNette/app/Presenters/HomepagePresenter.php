@@ -47,9 +47,6 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
     {
         try {
             $this->getUser()->login($data->username, $data->password);
-            $section = $this->session->getSection("loginSection");
-            $section->set('userName', $data->username);
-            $section->set('userId', $this->getUser()->id);
             $this->redirect('Secret:');
 
         } catch (Nette\Security\AuthenticationException $e) {
