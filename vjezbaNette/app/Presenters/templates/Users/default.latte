@@ -1,16 +1,12 @@
 {block content}
 <body style="background-image: url('/Images/pexels-maria-borisenko-10162332.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center top;">
-
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light " style="opacity: 0.67">
     <div style="display:flex;align-content: flex-start">
         <input class="btn btn-primary " type="button" value="Back" onclick="history.go(-1)">
     </div>
-    <h2 class="display-4 font-weight-normal"> Inspirativni tekst </h2>
-    <p class="lead font-weight-normal text-break">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-        finibus accumsan iaculis. Nam placerat ultricies sem ut interdum. Quisque nec nisi a velit convallis
-        varius. Aliquam erat volutpat. Praesent vulputate, nisl sit amet imperdiet sodales, sapien nisi luctus
-        ante, ut malesuada felis sapien id nisi. Nulla facilisi. Aenean id felis varius velit cursus ullamcorper
-        vel feugiat urna. </p>
+    <div >
+        <h3 class="display-4 font-weight-normal">Admin page - list of users</h3>
+    </div>
 </div>
 <div style="display: flex;justify-content: center">
     <div  class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light " style="opacity: 0.9;width: 35%; ">
@@ -18,23 +14,19 @@
             <thead>
             <tr>
                 <th scope="col">
-                    Data from database
+                    Username
                 </th>
             </tr>
             </thead>
             <tbody>
             <div n:foreach="$data as $row" class="data">
                 <tr>
-                    <td>{$row->data}</td>
+                    <td>{$row->username}</td>
                 </tr>
             </div>
             </tbody>
         </table>
-        <div class="mt-4">
-            <a type="button" class="btn btn-info btn-block" n:href="Users:default">Admin page</a>
-        </div>
     </div>
-
 </div>
 <script type="text/javascript">
     $(document).ready(function() {

@@ -15,10 +15,10 @@ class DatabaseFacade
         $this->database=$database;
     }
 
-    public function getUser()
+    public function getUsers()
     {
         $result= $this->database->query('SELECT * FROM users');
-        return $result->getRowCount();
+        return $result->fetchAll();
     }
 
     public function getUserSecretText($userId)
@@ -26,4 +26,6 @@ class DatabaseFacade
         $result=$this->database->query('SELECT data FROM secret_data WHERE user_id=?', $userId);
         return $result->fetchAll();
     }
+
+
 }
