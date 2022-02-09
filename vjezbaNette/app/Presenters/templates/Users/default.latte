@@ -14,6 +14,9 @@
             <thead>
             <tr>
                 <th scope="col">
+                    ID
+                </th>
+                <th scope="col">
                     Username
                 </th>
             </tr>
@@ -21,6 +24,7 @@
             <tbody>
             <div n:foreach="$data as $row" class="data">
                 <tr>
+                    <td>{$row->id}</td>
                     <td>{$row->username}</td>
                 </tr>
             </div>
