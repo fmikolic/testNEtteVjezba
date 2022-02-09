@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Presenters;
+namespace App\Modules\Front;
 
 use App\Model\DatabaseFacade;
 use Nette\Application\UI\Presenter;

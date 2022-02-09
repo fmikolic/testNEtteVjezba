@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Presenters;
+namespace App\Modules\Admin;
 
 use App\Model\DatabaseFacade;
 use Nette\Application\UI\Presenter;

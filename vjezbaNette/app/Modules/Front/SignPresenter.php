@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Presenters;
+namespace App\Modules\Front;
 
-use Nette;
 use Nette\Application\UI\Presenter;
-use Nette\Application\UI\Form;
 
 class SignPresenter extends Presenter
 {
