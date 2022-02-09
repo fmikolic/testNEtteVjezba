@@ -27,5 +27,19 @@ class DatabaseFacade
         return $result->fetchAll();
     }
 
+    public function add(array $data){
+
+    }
+
+    public function update(int $id,array $data){
+        $result=$this->database->query('SELECT * FROM users WHERE id=?', $id);
+        return $result->valid();
+    }
+
+    public function getUserInfo(int $id){
+        $result=$this->database->query('SELECT * FROM users WHERE id=?', $id);
+        return $result->fetch();
+    }
+
 
 }

@@ -14,11 +14,14 @@
         <table id="userstable" class="display">
             <thead>
                 <tr>
-                    <th scope="col">
+                    <th>
                         ID
                     </th>
-                    <th scope="col">
+                    <th>
                         Username
+                    </th>
+                    <th>
+                        Edit options
                     </th>
                 </tr>
             </thead>
@@ -27,6 +30,7 @@
                 <tr>
                     <td>{$row->id}</td>
                     <td>{$row->username}</td>
+                    <td><a class="btn btn-primary" n:href="EditUser:edit, $row->id" >Edit</a></td>
                 </tr>
             </div>
             </tbody>
