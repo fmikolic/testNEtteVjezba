@@ -49,8 +49,8 @@ class EditUserPresenter extends Presenter
         $form->addText('first_name', 'First name:');
         $form->addText('last_name', 'Last name:');
         $form->addText('address','Address');
-        $form->addText('birthdate','Birthday');
-        $form->addSubmit('submit', 'Sign in');
+        $form->addDate('birthdate','Birthday');
+        $form->addSubmit('submit', 'Apply');
 
         return $form;
     }
