@@ -37,6 +37,7 @@ class MyAuthenticator implements Authenticator
 
         return new SimpleIdentity(
             $row->id,
+            $row->admin_role,
             ['username'=>$row->username]
         );
     }

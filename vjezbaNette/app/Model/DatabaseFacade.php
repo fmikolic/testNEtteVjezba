@@ -28,13 +28,12 @@ class DatabaseFacade
     }
 
     public function add(array $data){
-        $result=$this->database->query('INSERT INTO users(username, password, first_name, last_name, address, birthdate) VALUES (?,?,?,?,?,?)', $data['username'],$data['password'],$data['first_name'],$data['last_name'],$data['address'], $data['birthdate']);
+        $result=$this->database->query('INSERT INTO users(username, password, first_name, last_name, address, birthdate) VALUES (?,?,?,?,?,?)', $data['username'],password_hash($data['password'], PASSWORD_BCRYPT),$data['first_name'],$data['last_name'],$data['address'], $data['birthdate']);
         return $result->valid();
     }
 
     public function update(int $id,array $data){
-        //todo: slozi upit
-        $result=$this->database->query('UPDATE users SET username=? WHERE id=?', $id);
+        $result=$this->database->query('UPDATE users SET username=?, password=?, first_name=?, last_name=?, address=?, birthdate=? WHERE id=?', $id);
         return $result->valid();
     }
 
@@ -42,6 +41,5 @@ class DatabaseFacade
         $result=$this->database->query('SELECT * FROM users WHERE id=?', $id);
         return $result->fetch();
     }
-
 
 }

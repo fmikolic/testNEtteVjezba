@@ -45,7 +45,7 @@ class EditUserPresenter extends Presenter
 
         $form->addText('username', 'Username:');
         $form->addPassword('password', 'Password:');
-        $form->addPassword('password1', 'Repeat password:');
+        $form->addPassword('password1', 'Repeat password:')->addRule($form::NOT_EQUAL, 'Passwords are not the same!', ['password']);
         $form->addText('first_name', 'First name:');
         $form->addText('last_name', 'Last name:');
         $form->addText('address','Address');

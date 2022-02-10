@@ -29,10 +29,11 @@ class SecretPresenter extends Presenter
     public function actionDefault(): void
     {
         $section = $this->session->getSection("loginSection");
-        $username = $section->get("userName");
         $userID = $section->get("userId");
 
+
         $this->template->data=$this->facade->getUserSecretText($userID);
+        $this->template->roles=$this->user->getRoles();
 
     }
 
