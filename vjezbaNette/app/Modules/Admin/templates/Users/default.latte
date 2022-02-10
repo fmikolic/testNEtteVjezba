@@ -10,26 +10,43 @@
 </div>
 <div style="display: flex;justify-content: center">
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light "
-         style="opacity: 0.9;width: 35%; ">
+         style="opacity: 0.9;width: fit-content; ">
         <table id="userstable" class="display">
             <thead>
-                <tr>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        Username
-                    </th>
-                    <th>
-                        Edit options
-                    </th>
-                </tr>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Username
+                </th>
+                <th>
+                    First name
+                </th>
+                <th>
+                    Last name
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    Birthday
+                </th>
+                <th>
+                    Edit options
+                </th>
+
+            </tr>
             </thead>
             <tbody>
             <div n:foreach="$data as $row" class="data">
                 <tr>
                     <td>{$row->id}</td>
                     <td>{$row->username}</td>
+                    <td>{$row->first_name}</td>
+                    <td>{$row->last_name}</td>
+                    <td>{$row->address}</td>
+                    <td>{$row->birthdate}</td>
                     <td><a class="btn btn-primary" n:href="EditUser:edit, $row->id" >Edit</a></td>
                 </tr>
             </div>

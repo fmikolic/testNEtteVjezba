@@ -21,16 +21,12 @@ class SecretPresenter extends Presenter
 
     protected function startup()
     {
-
         parent::startup();
-
     }
 
     public function actionDefault(): void
     {
-        $section = $this->session->getSection("loginSection");
-        $userID = $section->get("userId");
-
+        $userID = $this->user->getId();
 
         $this->template->data=$this->facade->getUserSecretText($userID);
         $this->template->roles=$this->user->getRoles();
