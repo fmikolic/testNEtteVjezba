@@ -28,6 +28,17 @@
       <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/nette/security" />
       <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/nette/robot-loader" />
       <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/contributte/forms-bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/symfony/property-access" />
+      <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/symfony/property-info" />
+      <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/contributte/application" />
+      <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/ublaboo/datagrid" />
+      <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/vjezbaNette/vendor/symfony/deprecation-contracts" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

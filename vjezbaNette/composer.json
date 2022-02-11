@@ -20,7 +20,8 @@
 		"nette/utils": "^3.2",
 		"latte/latte": "^2.9",
 		"tracy/tracy": "^2.8",
-		"contributte/forms-bootstrap": "^0.5.2"
+		"contributte/forms-bootstrap": "^0.5.2",
+		"ublaboo/datagrid": "^6.9"
 	},
 	"require-dev": {
 		"nette/tester": "^2.3",
@@ -31,5 +32,10 @@
 			"App\\": "app"
 		}
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "stable",
+	"config": {
+		"allow-plugins": {
+			"symfony/thanks": true
+		}
+	}
 }

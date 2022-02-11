@@ -10,7 +10,7 @@ use Nette\Application\UI\Presenter;
 
 class EditUserPresenter extends Presenter
 {
-    private $facade;
+    private DatabaseFacade $facade;
 
     public function __construct(DatabaseFacade $facade)
     {
