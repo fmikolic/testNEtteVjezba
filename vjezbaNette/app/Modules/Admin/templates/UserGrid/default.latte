@@ -1,3 +1,21 @@
 {block content}
+<body style="background-image: url('/Images/pexels-maria-borisenko-10162332.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center top;">
 
-    {control userGrid}
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light " style="opacity: 0.67">
+    <div style="display:flex;align-content: flex-start">
+        <input class="btn btn-primary " type="button" value="Back" onclick="history.go(-1)">
+    </div>
+</div>
+<div style="display: flex; justify-content: center">
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light "
+         style="opacity: 0.9;width: fit-content; ">
+        <div >
+            <div style="display: flex; justify-content: center">
+                <h1 n:block=title >Users in grid</h1>
+            </div>
+            {control userGrid}
+        </div>
+    </div>
+</div>
+</body>
+

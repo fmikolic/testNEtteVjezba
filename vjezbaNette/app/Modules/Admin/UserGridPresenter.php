@@ -16,16 +16,26 @@ class UserGridPresenter extends Presenter
         $this->facade = $facade;
     }
 
-    public function createComponentUserGrid(string $name)
+    public function createComponentUserGrid(): DataGrid
     {
-        $grid = new DataGrid($this, $name);
+        $grid = new DataGrid();
 
         $grid->setDataSource($this->facade->getUsers());
-        $grid->addColumnText('username', 'Username');
-        $grid->addColumnText('first_name', 'First name');
-        $grid->addColumnText('last_name', 'Last name');
-        $grid->addColumnText('address', 'Address');
-        $grid->addColumnDateTime('birthdate', 'Birthdate');
+        $grid->addColumnNumber('id', 'ID')->setAlign('left')->setSortable();
+        $grid->addColumnText('username', 'Username')->setSortable()->setFilterText();
+        $grid->addColumnText('first_name', 'First name')->setSortable()->setFilterText();
+        $grid->addColumnText('last_name', 'Last name')->setSortable()->setFilterText();
+        $grid->addColumnText('address', 'Address')->setSortable();
+        $grid->addColumnDateTime('birthdate', 'Birthdate')->setSortable();
+        $grid->addColumnStatus('admin_role','Is admin')->setSortable();
+
+        $grid->addGroupButtonAction('Change admin role')->onClick[]=[$this, 'changeAdminRole'];
+
+        return $grid;
+    }
+
+    public function changeAdminRole(array $ids){
+        echo 'lol';
 
     }
 }

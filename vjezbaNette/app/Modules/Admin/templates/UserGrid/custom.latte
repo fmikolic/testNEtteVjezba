@@ -1,0 +1,7 @@
+{extends $originalTemplate}
+    {block data}
+        {foreach $items as $item}
+            {foreach $columns as $key=>$column}
+                {$column->render ($item)}
+            {/foreach}
+        {/foreach}
