@@ -27,15 +27,27 @@ class UserGridPresenter extends Presenter
         $grid->addColumnText('last_name', 'Last name')->setSortable()->setFilterText();
         $grid->addColumnText('address', 'Address')->setSortable();
         $grid->addColumnDateTime('birthdate', 'Birthdate')->setSortable();
-        $grid->addColumnStatus('admin_role','Is admin')->setSortable();
+        $grid->addColumnStatus('admin_role', 'Is admin')->setSortable();
 
-        $grid->addGroupButtonAction('Change admin role')->onClick[]=[$this, 'changeAdminRole'];
+        $grid->addGroupAction('Change admin role')->onSelect[] = [$this, 'isAdminRole'];
 
         return $grid;
     }
 
-    public function changeAdminRole(array $ids){
-        echo 'lol';
+    public function isAdminRole(array $ids): void
+    {
+        foreach ($ids as $id) {
+            (int)$id = $id;
+            $this->changeAdminRole($id);
+        }
+        $this->redirect('this');
+    }
+
+    public function changeAdminRole(int $id)
+    {
+        $row = $this->facade->getUserInfo($id);
+        $row->admin_role = empty($row->admin_role) ? TRUE : FALSE;
+        $this->facade->updateNoPassword((int)$row->id, $row);
 
     }
 }
